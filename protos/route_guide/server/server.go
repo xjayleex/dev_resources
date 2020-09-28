@@ -1,12 +1,13 @@
 package server
-import (
 
-	"github.com/golang/protobuf/proto"
-	pb "github.com/xjayleex/idl/protos/route_guide/routeguide"
+import (
 	"context"
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/golang/protobuf/proto"
+	pb "google.golang.org/grpc/examples/route_guide/routeguide"
+	"google.golang.org/grpc"
 	"io"
 	"io/ioutil"
 	"log"
@@ -27,12 +28,13 @@ type routeGuideServer struct {
 	mu	sync.Mutex
 	routeNotes map[string][]*pb.RouteNote
 }
-//type RouteGuideServer interface {
+
+//	type RouteGuideServer interface
 //	GetFeature(context.Context, *Point) (*Feature, error)
 //	ListFeatures(*Rectangle, RouteGuide_ListFeaturesServer) error
 //	RecordRoute(RouteGuide_RecordRouteServer) error
 //	RouteChat(RouteGuide_RouteChatServer) error
-//}
+//
 
 // Simple RPC
 func (s *routeGuideServer) GetFeature(ctx context.Context, point *pb.Point) (*pb.Feature, error) {
@@ -83,7 +85,45 @@ func (s *routeGuideServer) RecordRoute(stream pb.RouteGuide_RecordRouteServer) e
 		if lastPoint != nil {
 			distance += calcDistance(lastPoint, point)
 		}
+
 		lastPoint = point
+	}
+}
+
+func (s *routeGuideServer) RouteChat(stream pb.RouteGuide_RouteChatServer) error{
+	for {
+		in, err := stream.Recv()
+		if err == io.EOF {
+			return nil
+		}
+		if err != nil {
+			return err
+		}
+		key := serialize(in.Location)
+		s.mu.Lock()
+		s.routeNotes[key] = append(s.routeNotes[key],in)
+		rn := make([]*pb.RouteNote, len(s.routeNotes[key]))
+		copy(rn, s.routeNotes[key])
+		s.mu.Unlock()
+		for _, note := range rn {
+			if err := stream.Send(note); err != nil {
+				return err
+			}
+		}
+	}
+}
+
+func (s *routeGuideServer) loadFeatures(filePath string) {
+	var data [] byte
+	if filePath != "" {
+		var err error
+		data, err = ioutil.ReadFile(filePath)
+		if err != nil {
+			log.Fatalf("Failed to load default features : %v", err)
+		}
+		if err := json.Unmarshal(data, &s.savedFeatures); err != nil {
+			log.Fatalf("Failed to load default features: %v", err)
+		}
 	}
 }
 
@@ -123,7 +163,31 @@ func calcDistance(p1 *pb.Point, p2 *pb.Point) int32 {
 	return int32(distance)
 }
 
+func serialize(point *pb.Point) string {
+	return fmt.Sprint("%d %d", point.Latitude, point.Longitude)
+}
+
 func toRadians(num float64) float64 {
 	return num * math.Pi / float64(180)
 }
 
+func newServer() *routeGuideServer {
+	s := &routeGuideServer {routeNotes: make(map[string][]*pb.RouteNote)}
+	s.loadFeatures(*jsonDBFile)
+	return s
+}
+
+func main() {
+	flag.Parse()
+	lis ,err := net.Listen("tcp", fmt.Sprintf("localhost:%d", *port))
+	if err != nil {
+		log.Fatalf("failed to listen : %v", err)
+	}
+	var opts []grpc.ServerOption
+	if *tls {
+
+	}
+	grpcServer := grpc.NewServer(opts ...)
+	pb.RegisterRouteGuideServer(grpcServer, newServer().Svc())
+
+}

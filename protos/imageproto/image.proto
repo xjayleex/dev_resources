@@ -1,0 +1,21 @@
+syntax = "proto3";
+package imageproto;
+
+message Chunk {
+  bytes Content = 1;
+}
+
+service ImageTransfer {
+  rpc SendImage(stream Chunk) returns (TransferStatus) {}
+}
+
+enum TransStatCode {
+  Unknown = 0;
+  Ok = 1;
+  Failed = 2;
+}
+
+message TransferStatus {
+  string Message = 1;
+  TransStatCode StatusCode = 2;
+}
