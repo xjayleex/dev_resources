@@ -4,9 +4,14 @@ package imageproto;
 message Chunk {
   bytes Content = 1;
 }
-
+message Sign {
+  string Username = 1;
+  string Password = 2;
+}
 service ImageTransfer {
   rpc SendImage(stream Chunk) returns (TransferStatus) {}
+  rpc SignUp(Sign) returns (TransferStatus) {}
+  rpc SignIn(Sign) returns (TransferStatus) {}
 }
 
 enum TransStatCode {
