@@ -7,7 +7,9 @@ message SignInRequest {
 }
 
 message SignInResponse {
-  string access_token = 2;
+  bool ok = 1;
+  string msg = 2;
+  string access_token = 3;
 }
 
 message SignUpRequest {
@@ -18,6 +20,7 @@ message SignUpRequest {
 
 message SignUpResponse {
   bool ok = 1;
+  string msg = 2;
 }
 
 
