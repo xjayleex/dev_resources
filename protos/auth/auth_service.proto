@@ -4,6 +4,7 @@ package auth;
 message SignInRequest {
   string mail = 1;
   string password = 2;
+  string accessToken = 3;
 }
 
 message SignInResponse {
