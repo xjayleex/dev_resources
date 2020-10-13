@@ -1,13 +1,9 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "template/template.proto",
+    "title": "template.proto",
     "version": "version not set"
   },
-  "schemes": [
-    "http",
-    "https"
-  ],
   "consumes": [
     "application/json"
   ],
@@ -15,39 +11,21 @@
     "application/json"
   ],
   "paths": {
-    "/get": {
-      "get": {
-        "summary": "Sends a greeting",
-        "operationId": "SendGet",
+    "/post": {
+      "post": {
+        "summary": "Post Registration info.",
+        "operationId": "Register_SendPost",
         "responses": {
           "200": {
-            "description": "",
+            "description": "A successful response.",
             "schema": {
               "$ref": "#/definitions/templateTemplateResponse"
             }
-          }
-        },
-        "parameters": [
-          {
-            "name": "name",
-            "in": "query",
-            "required": false,
-            "type": "string"
-          }
-        ],
-        "tags": [
-          "Greeter"
-        ]
-      }
-    },
-    "/post": {
-      "post": {
-        "operationId": "SendPost",
-        "responses": {
-          "200": {
-            "description": "",
+          },
+          "default": {
+            "description": "An unexpected error response.",
             "schema": {
-              "$ref": "#/definitions/templateTemplateResponse"
+              "$ref": "#/definitions/runtimeError"
             }
           }
         },
@@ -62,20 +40,130 @@
           }
         ],
         "tags": [
-          "Greeter"
+          "Register"
+        ]
+      }
+    },
+    "/v1/users/{name}": {
+      "get": {
+        "summary": "Get Registration info.",
+        "operationId": "Register_SendGet",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mail",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Register"
+        ]
+      }
+    },
+    "/va/users/{name}/{mail}": {
+      "get": {
+        "summary": "Get Registration info.",
+        "operationId": "Register_SendGet2",
+        "responses": {
+          "200": {
+            "description": "A successful response.",
+            "schema": {
+              "$ref": "#/definitions/templateTemplateResponse"
+            }
+          },
+          "default": {
+            "description": "An unexpected error response.",
+            "schema": {
+              "$ref": "#/definitions/runtimeError"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mail",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "tags": [
+          "Register"
         ]
       }
     }
   },
   "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
     "templateTemplateRequest": {
       "type": "object",
       "properties": {
         "name": {
           "type": "string"
+        },
+        "mail": {
+          "type": "string"
         }
       },
-      "description": "The request message containing the user's name."
+      "description": "The request message containing the user's name and email addr."
     },
     "templateTemplateResponse": {
       "type": "object",
@@ -84,7 +172,7 @@
           "type": "string"
         }
       },
-      "title": "The response message containing the greetings"
+      "description": "The response message containing the registration info."
     }
   }
 }
