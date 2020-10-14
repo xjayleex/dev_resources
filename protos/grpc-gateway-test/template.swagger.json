@@ -13,8 +13,8 @@
   "paths": {
     "/post": {
       "post": {
-        "summary": "Post Registration info.",
-        "operationId": "Register_SendPost",
+        "summary": "Post Enrollment info.",
+        "operationId": "Enroll_SendPost",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -40,14 +40,14 @@
           }
         ],
         "tags": [
-          "Register"
+          "Enroll"
         ]
       }
     },
     "/v1/users/{name}": {
       "get": {
-        "summary": "Get Registration info.",
-        "operationId": "Register_SendGet",
+        "summary": "Get Enrollment info.",
+        "operationId": "Enroll_SendGet",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -77,14 +77,14 @@
           }
         ],
         "tags": [
-          "Register"
+          "Enroll"
         ]
       }
     },
-    "/va/users/{name}/{mail}": {
+    "/v1/users/{name}/{mail}": {
       "get": {
-        "summary": "Get Registration info.",
-        "operationId": "Register_SendGet2",
+        "summary": "Get Enrollment info.",
+        "operationId": "Enroll_SendGet2",
         "responses": {
           "200": {
             "description": "A successful response.",
@@ -114,7 +114,7 @@
           }
         ],
         "tags": [
-          "Register"
+          "Enroll"
         ]
       }
     }
@@ -172,7 +172,7 @@
           "type": "string"
         }
       },
-      "description": "The response message containing the registration info."
+      "description": "The response message containing the Enrollment info."
     }
   }
 }

@@ -34,10 +34,10 @@ var _ = descriptor.ForMessage
 var _ = metadata.Join
 
 var (
-	filter_Register_SendGet_0 = &utilities.DoubleArray{Encoding: map[string]int{"name": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
+	filter_Enroll_SendGet_0 = &utilities.DoubleArray{Encoding: map[string]int{"name": 0}, Base: []int{1, 1, 0}, Check: []int{0, 1, 2}}
 )
 
-func request_Register_SendGet_0(ctx context.Context, marshaler runtime.Marshaler, client RegisterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Enroll_SendGet_0(ctx context.Context, marshaler runtime.Marshaler, client EnrollClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TemplateRequest
 	var metadata runtime.ServerMetadata
 
@@ -62,7 +62,7 @@ func request_Register_SendGet_0(ctx context.Context, marshaler runtime.Marshaler
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Register_SendGet_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Enroll_SendGet_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -71,7 +71,7 @@ func request_Register_SendGet_0(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Register_SendGet_0(ctx context.Context, marshaler runtime.Marshaler, server RegisterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Enroll_SendGet_0(ctx context.Context, marshaler runtime.Marshaler, server EnrollServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TemplateRequest
 	var metadata runtime.ServerMetadata
 
@@ -96,7 +96,7 @@ func local_request_Register_SendGet_0(ctx context.Context, marshaler runtime.Mar
 	if err := req.ParseForm(); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
-	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Register_SendGet_0); err != nil {
+	if err := runtime.PopulateQueryParameters(&protoReq, req.Form, filter_Enroll_SendGet_0); err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "%v", err)
 	}
 
@@ -105,7 +105,7 @@ func local_request_Register_SendGet_0(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_Register_SendGet_1(ctx context.Context, marshaler runtime.Marshaler, client RegisterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Enroll_SendGet_1(ctx context.Context, marshaler runtime.Marshaler, client EnrollClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TemplateRequest
 	var metadata runtime.ServerMetadata
 
@@ -143,7 +143,7 @@ func request_Register_SendGet_1(ctx context.Context, marshaler runtime.Marshaler
 
 }
 
-func local_request_Register_SendGet_1(ctx context.Context, marshaler runtime.Marshaler, server RegisterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Enroll_SendGet_1(ctx context.Context, marshaler runtime.Marshaler, server EnrollServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TemplateRequest
 	var metadata runtime.ServerMetadata
 
@@ -181,7 +181,7 @@ func local_request_Register_SendGet_1(ctx context.Context, marshaler runtime.Mar
 
 }
 
-func request_Register_SendPost_0(ctx context.Context, marshaler runtime.Marshaler, client RegisterClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func request_Enroll_SendPost_0(ctx context.Context, marshaler runtime.Marshaler, client EnrollClient, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TemplateRequest
 	var metadata runtime.ServerMetadata
 
@@ -198,7 +198,7 @@ func request_Register_SendPost_0(ctx context.Context, marshaler runtime.Marshale
 
 }
 
-func local_request_Register_SendPost_0(ctx context.Context, marshaler runtime.Marshaler, server RegisterServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
+func local_request_Enroll_SendPost_0(ctx context.Context, marshaler runtime.Marshaler, server EnrollServer, req *http.Request, pathParams map[string]string) (proto.Message, runtime.ServerMetadata, error) {
 	var protoReq TemplateRequest
 	var metadata runtime.ServerMetadata
 
@@ -215,13 +215,13 @@ func local_request_Register_SendPost_0(ctx context.Context, marshaler runtime.Ma
 
 }
 
-// RegisterRegisterHandlerServer registers the http handlers for service Register to "mux".
-// UnaryRPC     :call RegisterServer directly.
+// RegisterEnrollHandlerServer registers the http handlers for service Enroll to "mux".
+// UnaryRPC     :call EnrollServer directly.
 // StreamingRPC :currently unsupported pending https://github.com/grpc/grpc-go/issues/906.
-// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterRegisterHandlerFromEndpoint instead.
-func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, server RegisterServer) error {
+// Note that using this registration option will cause many gRPC library features to stop working. Consider using RegisterEnrollHandlerFromEndpoint instead.
+func RegisterEnrollHandlerServer(ctx context.Context, mux *runtime.ServeMux, server EnrollServer) error {
 
-	mux.Handle("GET", pattern_Register_SendGet_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Enroll_SendGet_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -232,7 +232,7 @@ func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Register_SendGet_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Enroll_SendGet_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -240,11 +240,11 @@ func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Register_SendGet_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Enroll_SendGet_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Register_SendGet_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Enroll_SendGet_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -255,7 +255,7 @@ func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Register_SendGet_1(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Enroll_SendGet_1(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -263,11 +263,11 @@ func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Register_SendGet_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Enroll_SendGet_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Register_SendPost_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Enroll_SendPost_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		var stream runtime.ServerTransportStream
@@ -278,7 +278,7 @@ func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := local_request_Register_SendPost_0(rctx, inboundMarshaler, server, req, pathParams)
+		resp, md, err := local_request_Enroll_SendPost_0(rctx, inboundMarshaler, server, req, pathParams)
 		md.HeaderMD, md.TrailerMD = metadata.Join(md.HeaderMD, stream.Header()), metadata.Join(md.TrailerMD, stream.Trailer())
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
@@ -286,16 +286,16 @@ func RegisterRegisterHandlerServer(ctx context.Context, mux *runtime.ServeMux, s
 			return
 		}
 
-		forward_Register_SendPost_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Enroll_SendPost_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
 	return nil
 }
 
-// RegisterRegisterHandlerFromEndpoint is same as RegisterRegisterHandler but
+// RegisterEnrollHandlerFromEndpoint is same as RegisterEnrollHandler but
 // automatically dials to "endpoint" and closes the connection when "ctx" gets done.
-func RegisterRegisterHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
+func RegisterEnrollHandlerFromEndpoint(ctx context.Context, mux *runtime.ServeMux, endpoint string, opts []grpc.DialOption) (err error) {
 	conn, err := grpc.Dial(endpoint, opts...)
 	if err != nil {
 		return err
@@ -315,23 +315,23 @@ func RegisterRegisterHandlerFromEndpoint(ctx context.Context, mux *runtime.Serve
 		}()
 	}()
 
-	return RegisterRegisterHandler(ctx, mux, conn)
+	return RegisterEnrollHandler(ctx, mux, conn)
 }
 
-// RegisterRegisterHandler registers the http handlers for service Register to "mux".
+// RegisterEnrollHandler registers the http handlers for service Enroll to "mux".
 // The handlers forward requests to the grpc endpoint over "conn".
-func RegisterRegisterHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
-	return RegisterRegisterHandlerClient(ctx, mux, NewRegisterClient(conn))
+func RegisterEnrollHandler(ctx context.Context, mux *runtime.ServeMux, conn *grpc.ClientConn) error {
+	return RegisterEnrollHandlerClient(ctx, mux, NewEnrollClient(conn))
 }
 
-// RegisterRegisterHandlerClient registers the http handlers for service Register
-// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "RegisterClient".
-// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "RegisterClient"
+// RegisterEnrollHandlerClient registers the http handlers for service Enroll
+// to "mux". The handlers forward requests to the grpc endpoint over the given implementation of "EnrollClient".
+// Note: the gRPC framework executes interceptors within the gRPC handler. If the passed in "EnrollClient"
 // doesn't go through the normal gRPC flow (creating a gRPC client etc.) then it will be up to the passed in
-// "RegisterClient" to call the correct interceptors.
-func RegisterRegisterHandlerClient(ctx context.Context, mux *runtime.ServeMux, client RegisterClient) error {
+// "EnrollClient" to call the correct interceptors.
+func RegisterEnrollHandlerClient(ctx context.Context, mux *runtime.ServeMux, client EnrollClient) error {
 
-	mux.Handle("GET", pattern_Register_SendGet_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Enroll_SendGet_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -340,18 +340,18 @@ func RegisterRegisterHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Register_SendGet_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Enroll_SendGet_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Register_SendGet_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Enroll_SendGet_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("GET", pattern_Register_SendGet_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("GET", pattern_Enroll_SendGet_1, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -360,18 +360,18 @@ func RegisterRegisterHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Register_SendGet_1(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Enroll_SendGet_1(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Register_SendGet_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Enroll_SendGet_1(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
-	mux.Handle("POST", pattern_Register_SendPost_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
+	mux.Handle("POST", pattern_Enroll_SendPost_0, func(w http.ResponseWriter, req *http.Request, pathParams map[string]string) {
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
@@ -380,14 +380,14 @@ func RegisterRegisterHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
-		resp, md, err := request_Register_SendPost_0(rctx, inboundMarshaler, client, req, pathParams)
+		resp, md, err := request_Enroll_SendPost_0(rctx, inboundMarshaler, client, req, pathParams)
 		ctx = runtime.NewServerMetadataContext(ctx, md)
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
 		}
 
-		forward_Register_SendPost_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
+		forward_Enroll_SendPost_0(ctx, mux, outboundMarshaler, w, req, resp, mux.GetForwardResponseOptions()...)
 
 	})
 
@@ -395,17 +395,17 @@ func RegisterRegisterHandlerClient(ctx context.Context, mux *runtime.ServeMux, c
 }
 
 var (
-	pattern_Register_SendGet_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "users", "name"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Enroll_SendGet_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2}, []string{"v1", "users", "name"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Register_SendGet_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3}, []string{"va", "users", "name", "mail"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Enroll_SendGet_1 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 1, 0, 4, 1, 5, 2, 1, 0, 4, 1, 5, 3}, []string{"v1", "users", "name", "mail"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Register_SendPost_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"post"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Enroll_SendPost_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0}, []string{"post"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (
-	forward_Register_SendGet_0 = runtime.ForwardResponseMessage
+	forward_Enroll_SendGet_0 = runtime.ForwardResponseMessage
 
-	forward_Register_SendGet_1 = runtime.ForwardResponseMessage
+	forward_Enroll_SendGet_1 = runtime.ForwardResponseMessage
 
-	forward_Register_SendPost_0 = runtime.ForwardResponseMessage
+	forward_Enroll_SendPost_0 = runtime.ForwardResponseMessage
 )

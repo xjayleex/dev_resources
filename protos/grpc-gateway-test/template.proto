@@ -5,18 +5,18 @@ import "google/api/annotations.proto";
 import "google/protobuf/wrappers.proto";
 package template;
 
-// The Registration service definition.
-service Register {
-  // Get Registration info.
+// The Enrollment service definition.
+service Enroll {
+  // Get Enrollment info.
   rpc SendGet (TemplateRequest) returns (TemplateResponse) {
     option (google.api.http) = {
       get: "/v1/users/{name}"
       additional_bindings {
-        get: "/va/users/{name}/{mail}"
+        get: "/v1/users/{name}/{mail}"
       }
     };
   }
-  // Post Registration info.
+  // Post Enrollment info.
   rpc SendPost (TemplateRequest) returns (TemplateResponse) {
     option (google.api.http) = {
       post: "/post"
@@ -31,10 +31,7 @@ message TemplateRequest {
   string mail = 2;
 }
 
-// The response message containing the registration info.
+// The response message containing the Enrollment info.
 message TemplateResponse {
   string message = 1;
 }
-
-//protoc -I . --swagger_out
-//./gen/swagger --swagger_opt logtostderr=true your/service/v1/your_service.proto

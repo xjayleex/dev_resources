@@ -87,7 +87,7 @@ func (x *TemplateRequest) GetMail() string {
 	return ""
 }
 
-// The response message containing the registration info.
+// The response message containing the Enrollment info.
 type TemplateResponse struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -150,21 +150,20 @@ var file_template_proto_rawDesc = []byte{
 	0x61, 0x69, 0x6c, 0x22, 0x2c, 0x0a, 0x10, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61,
 	0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67,
-	0x65, 0x32, 0xd6, 0x01, 0x0a, 0x08, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x12, 0x75,
-	0x0a, 0x07, 0x53, 0x65, 0x6e, 0x64, 0x47, 0x65, 0x74, 0x12, 0x19, 0x2e, 0x74, 0x65, 0x6d, 0x70,
-	0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71,
-	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e,
-	0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
-	0x22, 0x33, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2d, 0x12, 0x10, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73,
-	0x65, 0x72, 0x73, 0x2f, 0x7b, 0x6e, 0x61, 0x6d, 0x65, 0x7d, 0x5a, 0x19, 0x12, 0x17, 0x2f, 0x76,
-	0x61, 0x2f, 0x75, 0x73, 0x65, 0x72, 0x73, 0x2f, 0x7b, 0x6e, 0x61, 0x6d, 0x65, 0x7d, 0x2f, 0x7b,
-	0x6d, 0x61, 0x69, 0x6c, 0x7d, 0x12, 0x53, 0x0a, 0x08, 0x53, 0x65, 0x6e, 0x64, 0x50, 0x6f, 0x73,
-	0x74, 0x12, 0x19, 0x2e, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65, 0x6d,
-	0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x74,
-	0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65,
-	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x10, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0a,
-	0x22, 0x05, 0x2f, 0x70, 0x6f, 0x73, 0x74, 0x3a, 0x01, 0x2a, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x33,
+	0x65, 0x32, 0xd4, 0x01, 0x0a, 0x06, 0x45, 0x6e, 0x72, 0x6f, 0x6c, 0x6c, 0x12, 0x75, 0x0a, 0x07,
+	0x53, 0x65, 0x6e, 0x64, 0x47, 0x65, 0x74, 0x12, 0x19, 0x2e, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61,
+	0x74, 0x65, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65,
+	0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x33,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x2d, 0x12, 0x10, 0x2f, 0x76, 0x31, 0x2f, 0x75, 0x73, 0x65, 0x72,
+	0x73, 0x2f, 0x7b, 0x6e, 0x61, 0x6d, 0x65, 0x7d, 0x5a, 0x19, 0x12, 0x17, 0x2f, 0x76, 0x31, 0x2f,
+	0x75, 0x73, 0x65, 0x72, 0x73, 0x2f, 0x7b, 0x6e, 0x61, 0x6d, 0x65, 0x7d, 0x2f, 0x7b, 0x6d, 0x61,
+	0x69, 0x6c, 0x7d, 0x12, 0x53, 0x0a, 0x08, 0x53, 0x65, 0x6e, 0x64, 0x50, 0x6f, 0x73, 0x74, 0x12,
+	0x19, 0x2e, 0x74, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c,
+	0x61, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1a, 0x2e, 0x74, 0x65, 0x6d,
+	0x70, 0x6c, 0x61, 0x74, 0x65, 0x2e, 0x54, 0x65, 0x6d, 0x70, 0x6c, 0x61, 0x74, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x10, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x0a, 0x22, 0x05,
+	0x2f, 0x70, 0x6f, 0x73, 0x74, 0x3a, 0x01, 0x2a, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -185,10 +184,10 @@ var file_template_proto_goTypes = []interface{}{
 	(*TemplateResponse)(nil), // 1: template.TemplateResponse
 }
 var file_template_proto_depIdxs = []int32{
-	0, // 0: template.Register.SendGet:input_type -> template.TemplateRequest
-	0, // 1: template.Register.SendPost:input_type -> template.TemplateRequest
-	1, // 2: template.Register.SendGet:output_type -> template.TemplateResponse
-	1, // 3: template.Register.SendPost:output_type -> template.TemplateResponse
+	0, // 0: template.Enroll.SendGet:input_type -> template.TemplateRequest
+	0, // 1: template.Enroll.SendPost:input_type -> template.TemplateRequest
+	1, // 2: template.Enroll.SendGet:output_type -> template.TemplateResponse
+	1, // 3: template.Enroll.SendPost:output_type -> template.TemplateResponse
 	2, // [2:4] is the sub-list for method output_type
 	0, // [0:2] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -255,112 +254,112 @@ var _ grpc.ClientConnInterface
 // is compatible with the grpc package it is being compiled against.
 const _ = grpc.SupportPackageIsVersion6
 
-// RegisterClient is the client API for Register service.
+// EnrollClient is the client API for Enroll service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
-type RegisterClient interface {
-	// Get Registration info.
+type EnrollClient interface {
+	// Get Enrollment info.
 	SendGet(ctx context.Context, in *TemplateRequest, opts ...grpc.CallOption) (*TemplateResponse, error)
-	// Post Registration info.
+	// Post Enrollment info.
 	SendPost(ctx context.Context, in *TemplateRequest, opts ...grpc.CallOption) (*TemplateResponse, error)
 }
 
-type registerClient struct {
+type enrollClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewRegisterClient(cc grpc.ClientConnInterface) RegisterClient {
-	return &registerClient{cc}
+func NewEnrollClient(cc grpc.ClientConnInterface) EnrollClient {
+	return &enrollClient{cc}
 }
 
-func (c *registerClient) SendGet(ctx context.Context, in *TemplateRequest, opts ...grpc.CallOption) (*TemplateResponse, error) {
+func (c *enrollClient) SendGet(ctx context.Context, in *TemplateRequest, opts ...grpc.CallOption) (*TemplateResponse, error) {
 	out := new(TemplateResponse)
-	err := c.cc.Invoke(ctx, "/template.Register/SendGet", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/template.Enroll/SendGet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *registerClient) SendPost(ctx context.Context, in *TemplateRequest, opts ...grpc.CallOption) (*TemplateResponse, error) {
+func (c *enrollClient) SendPost(ctx context.Context, in *TemplateRequest, opts ...grpc.CallOption) (*TemplateResponse, error) {
 	out := new(TemplateResponse)
-	err := c.cc.Invoke(ctx, "/template.Register/SendPost", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/template.Enroll/SendPost", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// RegisterServer is the server API for Register service.
-type RegisterServer interface {
-	// Get Registration info.
+// EnrollServer is the server API for Enroll service.
+type EnrollServer interface {
+	// Get Enrollment info.
 	SendGet(context.Context, *TemplateRequest) (*TemplateResponse, error)
-	// Post Registration info.
+	// Post Enrollment info.
 	SendPost(context.Context, *TemplateRequest) (*TemplateResponse, error)
 }
 
-// UnimplementedRegisterServer can be embedded to have forward compatible implementations.
-type UnimplementedRegisterServer struct {
+// UnimplementedEnrollServer can be embedded to have forward compatible implementations.
+type UnimplementedEnrollServer struct {
 }
 
-func (*UnimplementedRegisterServer) SendGet(context.Context, *TemplateRequest) (*TemplateResponse, error) {
+func (*UnimplementedEnrollServer) SendGet(context.Context, *TemplateRequest) (*TemplateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendGet not implemented")
 }
-func (*UnimplementedRegisterServer) SendPost(context.Context, *TemplateRequest) (*TemplateResponse, error) {
+func (*UnimplementedEnrollServer) SendPost(context.Context, *TemplateRequest) (*TemplateResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendPost not implemented")
 }
 
-func RegisterRegisterServer(s *grpc.Server, srv RegisterServer) {
-	s.RegisterService(&_Register_serviceDesc, srv)
+func RegisterEnrollServer(s *grpc.Server, srv EnrollServer) {
+	s.RegisterService(&_Enroll_serviceDesc, srv)
 }
 
-func _Register_SendGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Enroll_SendGet_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TemplateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegisterServer).SendGet(ctx, in)
+		return srv.(EnrollServer).SendGet(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/template.Register/SendGet",
+		FullMethod: "/template.Enroll/SendGet",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegisterServer).SendGet(ctx, req.(*TemplateRequest))
+		return srv.(EnrollServer).SendGet(ctx, req.(*TemplateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Register_SendPost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Enroll_SendPost_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(TemplateRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RegisterServer).SendPost(ctx, in)
+		return srv.(EnrollServer).SendPost(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/template.Register/SendPost",
+		FullMethod: "/template.Enroll/SendPost",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RegisterServer).SendPost(ctx, req.(*TemplateRequest))
+		return srv.(EnrollServer).SendPost(ctx, req.(*TemplateRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-var _Register_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "template.Register",
-	HandlerType: (*RegisterServer)(nil),
+var _Enroll_serviceDesc = grpc.ServiceDesc{
+	ServiceName: "template.Enroll",
+	HandlerType: (*EnrollServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "SendGet",
-			Handler:    _Register_SendGet_Handler,
+			Handler:    _Enroll_SendGet_Handler,
 		},
 		{
 			MethodName: "SendPost",
-			Handler:    _Register_SendPost_Handler,
+			Handler:    _Enroll_SendPost_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

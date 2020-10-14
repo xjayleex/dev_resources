@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0b5791a-07ee-47ad-9f30-c049a672755a" name="Default Changelist" comment="" />
+    <list default="true" id="a0b5791a-07ee-47ad-9f30-c049a672755a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.pb.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.pb.gw.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.proto" beforeDir="false" afterPath="$PROJECT_DIR$/template.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template.swagger.json" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,5 +70,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
