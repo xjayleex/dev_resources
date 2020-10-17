@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "template.proto",
+    "title": "enrollment.proto",
     "version": "version not set"
   },
   "consumes": [
@@ -13,13 +13,13 @@
   "paths": {
     "/post": {
       "post": {
-        "summary": "Post Enrollment info.",
-        "operationId": "Enroll_SendPost",
+        "summary": "Send Enrollment request which mapped with POST req.",
+        "operationId": "Enrollment_Enroll",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/templateTemplateResponse"
+              "$ref": "#/definitions/enrollCommonResponseMsg"
             }
           },
           "default": {
@@ -35,24 +35,24 @@
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/templateTemplateRequest"
+              "$ref": "#/definitions/enrollEnrollmentRequest"
             }
           }
         ],
         "tags": [
-          "Enroll"
+          "Enrollment"
         ]
       }
     },
-    "/v1/users/{name}": {
+    "/v1/users/check/{name}/{mail}": {
       "get": {
         "summary": "Get Enrollment info.",
-        "operationId": "Enroll_SendGet",
+        "operationId": "Enrollment_CheckEnrollment2",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/templateTemplateResponse"
+              "$ref": "#/definitions/enrollCommonResponseMsg"
             }
           },
           "default": {
@@ -71,25 +71,25 @@
           },
           {
             "name": "mail",
-            "in": "query",
-            "required": false,
+            "in": "path",
+            "required": true,
             "type": "string"
           }
         ],
         "tags": [
-          "Enroll"
+          "Enrollment"
         ]
       }
     },
     "/v1/users/{name}/{mail}": {
       "get": {
         "summary": "Get Enrollment info.",
-        "operationId": "Enroll_SendGet2",
+        "operationId": "Enrollment_CheckEnrollment",
         "responses": {
           "200": {
             "description": "A successful response.",
             "schema": {
-              "$ref": "#/definitions/templateTemplateResponse"
+              "$ref": "#/definitions/enrollCommonResponseMsg"
             }
           },
           "default": {
@@ -114,12 +114,32 @@
           }
         ],
         "tags": [
-          "Enroll"
+          "Enrollment"
         ]
       }
     }
   },
   "definitions": {
+    "enrollCommonResponseMsg": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string"
+        }
+      },
+      "description": "The response message containing the Enrollment info."
+    },
+    "enrollEnrollmentRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "mail": {
+          "type": "string"
+        }
+      }
+    },
     "protobufAny": {
       "type": "object",
       "properties": {
@@ -152,27 +172,6 @@
           }
         }
       }
-    },
-    "templateTemplateRequest": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "mail": {
-          "type": "string"
-        }
-      },
-      "description": "The request message containing the user's name and email addr."
-    },
-    "templateTemplateResponse": {
-      "type": "object",
-      "properties": {
-        "message": {
-          "type": "string"
-        }
-      },
-      "description": "The response message containing the Enrollment info."
     }
   }
 }
